@@ -2,6 +2,6 @@
 
 Las versiones de **phpMyAdmin** utilizadas para el análisis con **SourceMeter** son:
 
-**- Versión 4.9.10:** [https://github.com/phpmyadmin/phpmyadmin/releases/tag/RELEASE_4_9_10]()
-**- Versión 5.1.3:** [https://github.com/phpmyadmin/phpmyadmin/releases/tag/RELEASE_5_1_3]()
-**- Versión 5.2.0-rc1:** [https://github.com/phpmyadmin/phpmyadmin/releases/tag/RELEASE_5_2_0RC1]()
+- **Versión 4.9.10:** [https://github.com/phpmyadmin/phpmyadmin/releases/tag/RELEASE_4_9_10]()
+- **Versión 5.1.3:** [https://github.com/phpmyadmin/phpmyadmin/releases/tag/RELEASE_5_1_3]()
+- **Versión 5.2.0-rc1:** [https://github.com/phpmyadmin/phpmyadmin/releases/tag/RELEASE_5_2_0RC1]()
