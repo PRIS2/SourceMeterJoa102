@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<graph>
+  <header>
+    <info name = "RTEHunter-mode" value = "inactive"/>
+    <info name = "FindBugs2Graph-mode" value = "full"/>
+    <info name = "FaultHunter-mode" value = "inactive"/>
+    <info name = "AndroidHunter-mode" value = "inactive"/>
+    <info name = "DuplicatedCodeFinder-mode" value = "full"/>
+    <info name = "asg" value = "java"/>
+    <info name = "LIM2Metrics-mode" value = "full"/>
+    <info name = "PMD2Graph-mode" value = "full"/>
+  </header>
+  <data>
+    <node name = "L102" type = "Component">
+      <attribute type = "string" name = "Name" context = "attribute" value = "&lt;System&gt;"/>
+      <attribute type = "string" name = "LongName" context = "attribute" value = "&lt;System&gt;"/>
+      <attribute type = "string" name = "ChangesetID" context = "attribute" value = ""/>
+      <attribute type = "string" name = "AnalysisTime" context = "attribute" value = "now"/>
+      <attribute type = "int" name = "CCL" context = "metric" value = "0"/>
+      <attribute type = "int" name = "CCO" context = "metric" value = "0"/>
+      <attribute type = "string" name = "CC" context = "metric" value = "__INVALID__"/>
+      <attribute type = "float" name = "CEE" context = "metric" value = "0"/>
+      <attribute type = "string" name = "CEG" context = "metric" value = "__INVALID__"/>
+      <attribute type = "int" name = "CI" context = "metric" value = "0"/>
+      <attribute type = "string" name = "CLC" context = "metric" value = "__INVALID__"/>
+      <attribute type = "string" name = "CLLC" context = "metric" value = "__INVALID__"/>
+      <attribute type = "int" name = "LDC" context = "metric" value = "0"/>
+      <attribute type = "int" name = "LLDC" context = "metric" value = "0"/>
+      <attribute type = "string" name = "NCR" context = "metric" value = "__INVALID__"/>
+      <attribute type = "string" name = "CR" context = "metric" value = "__INVALID__"/>
+      <attribute type = "int" name = "TLLOC" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TLOC" context = "metric" value = "0"/>
+      <attribute type = "float" name = "TAD" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNA" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNCL" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNEN" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNFI" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNG" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNIN" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNM" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNOS" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNPA" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNPCL" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNPEN" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNPIN" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNPKG" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNPM" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNS" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TPDA" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TPUA" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TCLOC" context = "metric" value = "0"/>
+      <attribute type = "int" name = "TNDI" context = "metric" value = "0"/>
+      <attribute type = "float" name = "TCD" context = "metric" value = "0"/>
+      <attribute type = "int" name = "WarningBlocker" context = "metric" value = "0"/>
+      <attribute type = "int" name = "WarningCritical" context = "metric" value = "0"/>
+      <attribute type = "int" name = "WarningMajor" context = "metric" value = "0"/>
+      <attribute type = "int" name = "WarningMinor" context = "metric" value = "0"/>
+      <attribute type = "int" name = "WarningInfo" context = "metric" value = "0"/>
+    </node>
+  </data>
+</graph>

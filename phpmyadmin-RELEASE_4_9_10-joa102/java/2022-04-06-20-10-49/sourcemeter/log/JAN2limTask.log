@@ -1,0 +1,15 @@
+[2022-04-06 20:10:52] Start:JAN2limTask
+JAN2Lim 10.0.0 (Build:f8fa7a1c28) - (C) 2001-2021 FrontEndART Ltd.
+Integrated 3rd party tool(s): SonarQube
+The component structure  hasn't built.
+Loading file:    C:\GIT\pris2\SourceMeter\phpmyadmin-RELEASE_4_9_10\.columbus_java\phpmyadmin-RELEASE_4_9_10-joa102.ljsi
+
+Statistics:
+	Converting time              :       0.00s
+	Saving asg time              :       0.00s
+	Dumping limml time           :       0.00s
+	Total time                   :       0.00s
+	Peak memory usage            :       3.62MB
+	Number of not existed files  :          0
+
+[2022-04-06 20:10:52] End:JAN2limTask Result:OK

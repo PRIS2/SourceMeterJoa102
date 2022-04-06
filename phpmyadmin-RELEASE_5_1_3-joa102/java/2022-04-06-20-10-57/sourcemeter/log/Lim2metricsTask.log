@@ -1,0 +1,12 @@
+[2022-04-06 20:11:00] Start:Lim2metricsTask
+LIM2Metrics 10.0.0 Java (Build:f8fa7a1c28) - (C) 2001-2021 FrontEndART Ltd.
+Integrated 3rd party tool(s): SonarQube
+Saving graph to C:\GIT\pris2\SourceMeter\joa102\phpmyadmin-RELEASE_5_1_3-joa102\java\2022-04-06-20-10-57\sourcemeter\graph\phpmyadmin-RELEASE_5_1_3-joa102-metrics.graph
+Exporting rul
+
+Statistics:
+	Calculation time         :       0.00s
+	Export time              :       0.01s
+	Total time               :       0.04s
+	Peak memory usage        :       8.74MB
+[2022-04-06 20:11:00] End:Lim2metricsTask Result:OK
