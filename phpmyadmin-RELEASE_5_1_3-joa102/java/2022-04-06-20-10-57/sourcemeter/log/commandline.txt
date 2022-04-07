@@ -1,6 +1,0 @@
-SourceMeterJava
--projectName=phpmyadmin-RELEASE_5_1_3-joa102
--projectBaseDir=C:\GIT\pris2\SourceMeter\phpmyadmin-RELEASE_5_1_3
--resultsDir=C:\GIT\pris2\SourceMeter\joa102
--runFB=true
--FBFileList=phpmyadmin-RELEASE_5_1_3.txt

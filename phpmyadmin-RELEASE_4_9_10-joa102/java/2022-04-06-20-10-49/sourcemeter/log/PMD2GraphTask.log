@@ -1,7 +1,0 @@
-[2022-04-06 20:10:52] Start:PMD2GraphTask
-PMD2Graph 10.0.0 (Build:f8fa7a1c28) - (C) 2001-2021 FrontEndART Ltd.
-Integrated 3rd party tool(s): SonarQube
-Loading LIM ASG file "C:\GIT\pris2\SourceMeter\joa102\phpmyadmin-RELEASE_4_9_10-joa102\java\2022-04-06-20-10-49\sourcemeter\asg\phpmyadmin-RELEASE_4_9_10-joa102.lim"
-Loading filter file "C:\GIT\pris2\SourceMeter\joa102\phpmyadmin-RELEASE_4_9_10-joa102\java\2022-04-06-20-10-49\sourcemeter\asg\phpmyadmin-RELEASE_4_9_10-joa102.flim"
-Loading xml file "C:\GIT\pris2\SourceMeter\joa102\phpmyadmin-RELEASE_4_9_10-joa102\java\2022-04-06-20-10-49\sourcemeter\temp\phpmyadmin-RELEASE_4_9_10-joa102-PMD.xml"
-[2022-04-06 20:10:52] End:PMD2GraphTask Result:OK
