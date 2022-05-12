@@ -1,3 +1,0 @@
-"0","media30pLOC_ClassV1 = (mediaLOC_ClassV1 * 0.3) + mediaLOC_ClassV1"
-"0","indicadorLOC_ClassV1 <- datasetClassV1[datasetClassV1$LOC >= media30pLOC_ClassV1,]"
-"0","indicadorLOC_ClassV1"

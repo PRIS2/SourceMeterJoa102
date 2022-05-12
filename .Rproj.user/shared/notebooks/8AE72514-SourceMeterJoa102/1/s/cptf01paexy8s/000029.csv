@@ -1,5 +1,0 @@
-"0","barplot(freq_classV3,"
-"0","        main = 'Líneas de código de V1',"
-"0","        col = 'red',"
-"0","        xlab = 'Líneas de código',"
-"0","        ylab = 'Cantidad')"

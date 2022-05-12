@@ -1,8 +1,0 @@
-"0",""
-"0","tableCboClassV3 <- table(cboClassV3)"
-"0","barplot(tableCboClassV3,"
-"0","        main = 'Respuesta de una clase (CBO) V3',"
-"0","        col = 'grey',"
-"0","        xlab = 'Respuestas de una clase',"
-"0","        ylab = 'Clases')"
-"0",""

@@ -1,4 +1,0 @@
-"0",""
-"0","media30pWMC_ClassV2 = (mediaWMC_ClassV2 * 0.3) + mediaWMC_ClassV2"
-"0","indicadorWMC_ClassV2 <- datasetClassV2[datasetClassV2$WMC >= media30pWMC_ClassV2,]"
-"0","indicadorWMC_ClassV2"

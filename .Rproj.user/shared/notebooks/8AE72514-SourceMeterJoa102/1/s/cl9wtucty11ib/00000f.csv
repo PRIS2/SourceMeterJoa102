@@ -1,6 +1,0 @@
-"0","freqNOS_classV1 <- table(cut(NOS_methodV1, breaks = c(0,1,5,10,15,20,25,50,100,200,300,400), right = F, include.lowest = T), exclude = NULL)"
-"0",""
-"0","rownames(freqNOS_classV1) <- c('0-1','1-5','5-10','10-15','15-20','20-25','25-50','50-100','100-200','200-300','300-400')"
-"0",""
-"0",""
-"0","barplot(freqNOS_classV1)"

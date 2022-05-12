@@ -1,7 +1,0 @@
-"0","min_CBO_ClassV1 <- min(datasetClassV1$CBO)"
-"0","min_CBO_ClassV2 <- min(datasetClassV2$CBO)"
-"0","min_CBO_ClassV3 <- min(datasetClassV3$CBO)"
-"0","max_CBO_ClassV1 <- max(datasetClassV1$CBO)"
-"0","max_CBO_ClassV2 <- max(datasetClassV2$CBO)"
-"0","max_CBO_ClassV3 <- max(datasetClassV3$CBO)"
-"0",""

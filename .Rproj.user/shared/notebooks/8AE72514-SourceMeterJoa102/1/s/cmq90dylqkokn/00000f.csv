@@ -1,7 +1,0 @@
-"0","min_WMC_ClassV1 <- min(datasetClassV1$WMC)"
-"0","min_WMC_ClassV2 <- min(datasetClassV2$WMC)"
-"0","min_WMC_ClassV3 <- min(datasetClassV3$WMC)"
-"0","max_WMC_ClassV1 <- max(datasetClassV1$WMC)"
-"0","max_WMC_ClassV2 <- max(datasetClassV2$WMC)"
-"0","max_WMC_ClassV3 <- max(datasetClassV3$WMC)"
-"0",""
