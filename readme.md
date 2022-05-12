@@ -1,4 +1,4 @@
-# <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/PhpMyAdmin_logo.svg/1200px-PhpMyAdmin_logo.svg.png?20161018142601" align="right" width="100">phpMyAdmin - SourceMeterJoa102
+# <img src="https://www.sonarqube.org/assets/logo-31ad3115b1b4b120f3d1efd63e6b13ac9f1f89437f0cf6881cc4d8b5603a52b4.svg" align="right" width="100">SonarQube - SourceMeterJoa102
 
 Las versiones de **SonarQube** utilizadas para el análisis con **SourceMeter** son:
 
