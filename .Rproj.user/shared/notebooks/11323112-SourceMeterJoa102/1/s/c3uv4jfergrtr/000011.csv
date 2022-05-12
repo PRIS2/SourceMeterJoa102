@@ -1,0 +1,7 @@
+"0",""
+"0","tableWmcClassV2 <- table(wmcClassV2)"
+"0","barplot(tableWmcClassV2,"
+"0","        main = 'Métodos ponderados por clase (WMC) V2',"
+"0","        col = 'orange',"
+"0","        xlab = 'Métodos ponderados por clase',"
+"0","        ylab = 'Clases')"

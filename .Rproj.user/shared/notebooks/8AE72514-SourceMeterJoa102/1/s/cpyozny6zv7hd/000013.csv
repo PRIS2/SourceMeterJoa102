@@ -1,0 +1,4 @@
+"0",""
+"0","media30pCBO_ClassV3 = (mediaCBO_ClassV3 * 0.3) + mediaCBO_ClassV3"
+"0","indicadorCBO_ClassV3 <- datasetClassV3[datasetClassV3$CBO >= media30pCBO_ClassV3,]"
+"0","indicadorCBO_ClassV3"

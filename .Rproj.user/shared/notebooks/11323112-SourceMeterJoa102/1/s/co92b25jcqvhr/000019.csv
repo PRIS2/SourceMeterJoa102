@@ -1,0 +1,8 @@
+"0",""
+"0","tableLcomClassV3 <- table(lcomClassV3)"
+"0","barplot(tableLcomClassV3,"
+"0","        main = 'Falta de cohesión en los métodos (LCOM) V3',"
+"0","        col = 'grey',"
+"0","        xlab = 'Falta de cohesión en los métodos',"
+"0","        ylab = 'Clases')"
+"0",""

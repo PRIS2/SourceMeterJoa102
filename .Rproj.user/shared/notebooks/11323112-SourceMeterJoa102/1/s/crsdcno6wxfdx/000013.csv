@@ -1,0 +1,4 @@
+"0",""
+"0","scaleLcomClassV3 = (meanLcomClassV3 * 0.3) + meanLcomClassV3"
+"0","indicatorLcomClassV3 <- datasetClassV3[lcomClassV3 >= scaleLcomClassV3,]"
+"0","indicatorLcomClassV3"

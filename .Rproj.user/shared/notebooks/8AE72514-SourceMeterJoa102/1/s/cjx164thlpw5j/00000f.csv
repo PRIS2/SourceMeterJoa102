@@ -1,0 +1,7 @@
+"0","min_LOC_ClassV1 <- min(datasetClassV1$LOC)"
+"0","min_LOC_ClassV2 <- min(datasetClassV2$LOC)"
+"0","min_LOC_ClassV3 <- min(datasetClassV3$LOC)"
+"0","max_LOC_ClassV1 <- max(datasetClassV1$LOC)"
+"0","max_LOC_ClassV2 <- max(datasetClassV2$LOC)"
+"0","max_LOC_ClassV3 <- max(datasetClassV3$LOC)"
+"0",""

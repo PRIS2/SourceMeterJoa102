@@ -1,0 +1,354 @@
+---
+title: "Experimentacion_SonarQube"
+author: "joa102"
+date: '2022-05-05'
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Experimentación en ingeniería del software (**SonarQube**)
+
+Para la experimentación de esta práctica he seleccionado analizar el código fuente de la plataforma **SonarQube** mediante la herramienta *SourceMeter*.
+
+Las *versiones* de **SonarQube** que he decidido analizar son:
+
+-   **V1: 8.3.0.34182** -\> <https://github.com/SonarSource/sonarqube/releases/tag/8.3.0.34182>
+
+-   **V2: 8.9.8.54436** -\> <https://github.com/SonarSource/sonarqube/releases/tag/8.9.8.54436>
+
+-   **V3: 9.4.0.54424** -\> <https://github.com/SonarSource/sonarqube/releases/tag/9.4.0.54424>
+
+*En principio elegí analizar el código fuente la herramienta phpMyAdmin, pero cuando realice el análisis no obtuvo ningún tipo de métricas, por lo cual decidí probar a analizar el código fuente de la plataforma SonarQube y con esta si obtuve resultados y finalmente elegí quede con dicha plataforma.*
+
+Para analizar el código fuente con Sourcemeter utilicé los siguientes comandos ejecutandolos en el Símbolo del Sistema de Windows:
+
+-   cd C:\SourceMeter-10.0.0-x64-Windows\Java
+
+-   SourceMeterJava -projectName=sonarqube-8.3.0.34182-joa102 -projectBaseDir=C:\GIT\pris2\\SourceMeter\\SonarQube\\sonarqube-8.3.0.34182 -resultsDir=C:\GIT\pris2\\SourceMeter\\SourceMeterJoa102 -runFB=true -FBFileList=sonarqube-8.3.0.34182.txt
+
+-   SourceMeterJava -projectName=sonarqube-8.9.8.54436-joa102 -projectBaseDir=C:\GIT\pris2\\SourceMeter\\SonarQube\\sonarqube-8.9.8.54436 -resultsDir=C:\GIT\pris2\\SourceMeter\\SourceMeterJoa102 -runFB=true -FBFileList=sonarqube-8.9.8.54436.txt
+
+-   SourceMeterJava -projectName=sonarqube-9.4.0.54424-joa102 -projectBaseDir=C:\GIT\pris2\\SourceMeter\\SonarQube\\sonarqube-9.4.0.54424 -resultsDir=C:\GIT\pris2\\SourceMeter\\SourceMeterJoa102 -runFB=true -FBFileList=sonarqube-9.4.0.54424.txt
+
+Los resultados de los análisis del código fuente en csv están subidos en el siguiente repositorio de git:
+
+-   <https://github.com/PRIS2/SourceMeterJoa102.git>
+
+## Importar conjunto de datos (csv)
+
+Una vez que ya se han generado los csv con los resultados del análisis se va a proceder a importarlos para poder trabajar con ellos.
+
+### Cargar rutas (csv)
+
+Primero se guardan los ficheros csv dentro de este proyecto y a continuación se crea una función que guarda en variables la ruta relativa de cada fichero para para su posterior utilización.
+
+```{r routes_csv}
+
+routeClassV1 <- "sonarqube-8.3.0.34182-joa102\\sonarqube-8.3.0.34182-joa102-Class.csv"
+routeClassV2 <- "sonarqube-8.9.8.54436-joa102\\sonarqube-8.9.8.54436-joa102-Class.csv"
+routeClassV3 <- "sonarqube-9.4.0.54424-joa102\\sonarqube-9.4.0.54424-joa102-Class.csv"
+
+```
+
+### Cargar datos (csv)
+
+Una vez que se han creado las rutas de los ficheros csv se procede crear una función que lee dichos csv mediante las rutas anteriormente creadas y guardar su contenido en variables para su posterior utilización.
+
+```{r dataset_csv}
+
+library(readr)
+
+datasetClassV1 <- read_csv(routeClassV1)
+datasetClassV2 <- read_csv(routeClassV2)
+datasetClassV3 <- read_csv(routeClassV3)
+
+```
+
+Ahora que ya se tienen los datos de los ficheros csv cargados se va a proceder a analizarlos.
+
+## Análisis de métricas a nivel de clases
+
+Para está practica he decidido analizar las siguientes métricas a nivel de clase del fichero csv de clases:
+
+### Métrica de acoplamiento
+
+-   **CBO** de una clase es el número de clases a las cuales una clase está ligada. Se da dependencia entre dos clases cuando una clase usa métodos o variables de la otra clase. Las clases relacionadas por herencia no se tienen en cuenta. Se propone como indicador del esfuerzo necesario para el mantenimiento y en el testeo. Cuanto más acoplamiento se da en una clase, más dificil será reutilizarla. Además, las clases con excesivo acoplamiento dificultan la comprensibilidad y hacen más difícil el mantenimiento por lo que será necesario un mayor esfuerzo y riguroso testeo. Las clases deberían de ser lo más independientes. Al reducir el acoplamiento se reduce la complejidad, se mejora la modularidad y se promueve la encapsulación.
+
+### Métrica de complejidad
+
+-   **WMC** mide la complejidad de una clase. Si todos los métodos son considerados igualmente complejos, entonces WMS es simplemente el número de métodos definidos en una clase. Sugieren un umbral de 40 o 20, dependiendo si las clases son o no de interface de usuario respectivamente.
+
+### Métrica de cohesión
+
+-   **LCOM** es una medida de la cohesión de una clase midiendo el número de atributos comunes usados por diferentes métodos, indicando la calidad de la abstracción hecha en la clase. Un valor alto de LCOM implica falta de cohesión, es decir, escasa similitud de los métodos. Esto puede indicar que la clase está compuesta de elementos no relacionados, incrementando la complejidad y la probabilidad de errores durante el desarrollo. Es deseable una alta cohesión en los métodos dentro de una clase ya que ésta no puede ser dividida fomentando la encapsulación.
+
+## Carga de métricas
+
+Una vez que tenemos los datos del csv cargado en variables, se van a utilizar dichas variables para cargar individualmente cada métrica en nuevas variables para su posterior para analizarlas.
+
+-   CBO -\> Acoplamiento entre objetos
+
+```{r variable_CBO}
+
+cboClassV1 <- datasetClassV1$CBO
+cboClassV2 <- datasetClassV2$CBO
+cboClassV3 <- datasetClassV3$CBO
+
+```
+
+-   WMC -\> Métodos ponderados por clase
+
+```{r variable_WMC}
+
+wmcClassV1 <- datasetClassV1$WMC
+wmcClassV2 <- datasetClassV2$WMC
+wmcClassV3 <- datasetClassV3$WMC
+
+```
+
+-   LCOM -\> Falta de cohesión en los métodos
+
+```{r variable_LCOM}
+
+lcomClassV1 <- datasetClassV1$LCOM5
+lcomClassV2 <- datasetClassV2$LCOM5
+lcomClassV3 <- datasetClassV3$LCOM5
+
+```
+
+### Media, Máximos y mínimos
+
+Una vez que tenemos todos los datos del csv que se van a analizar cargados en variables se va a calcular la media, el máximo y el mínimo de cada uno de ellos para su posterior utilización.
+
+-   Media, máximo y mínimo de CBO:
+
+```{r mean_max_min_CBO}
+
+meanCboClassV1 <- mean(cboClassV1)
+meanCboClassV2 <- mean(cboClassV2)
+meanCboClassV3 <- mean(cboClassV3)
+
+maxCboClassV1 <- max(cboClassV1)
+maxCboClassV2 <- max(cboClassV2)
+maxCboClassV3 <- max(cboClassV3)
+
+minCboClassV1 <- min(cboClassV1)
+minCboClassV2 <- min(cboClassV2)
+minCboClassV3 <- min(cboClassV3)
+
+```
+
+-   Media, máximo y mínimo de WMC:
+
+```{r mean_max_min_WCM}
+
+meanWmcClassV1 <- mean(wmcClassV1)
+meanWmcClassV2 <- mean(wmcClassV2)
+meanWmcClassV3 <- mean(wmcClassV3)
+
+maxWmcClassV1 <- max(wmcClassV1)
+maxWmcClassV2 <- max(wmcClassV2)
+maxWmcClassV3 <- max(wmcClassV3)
+
+minWmcClassV1 <- min(wmcClassV1)
+minWmcClassV2 <- min(wmcClassV2)
+minWmcClassV3 <- min(wmcClassV3)
+
+```
+
+-   Media, máximo y mínimo de LCOM:
+
+```{r mean_max_min_LCOM5}
+
+meanLcomClassV1 <- mean(lcomClassV1)
+meanLcomClassV2 <- mean(lcomClassV2)
+meanLcomClassV3 <- mean(lcomClassV3)
+
+maxLcomClassV1 <- max(lcomClassV1)
+maxLcomClassV2 <- max(lcomClassV2)
+maxLcomClassV3 <- max(lcomClassV3)
+
+minLcomClassV1 <- min(lcomClassV1)
+minLcomClassV2 <- min(lcomClassV2)
+minLcomClassV3 <- min(lcomClassV3)
+
+```
+
+## Gráficas de barras
+
+Utilizando las variables creadas anteriormente que contienen todos los datos del csv se va a crear gráficas de barras de cada métrica para cada versión de csv de clases y así poder ver dichos datos visualmente para poder analizarlos para la posterior creación de indicadores.
+
+### Gráficas de barras CBO
+
+-   Para la Versión 1 su máximo es de 212, su mínimo es de 0 y su media es de 6.77
+
+-   Para la Versión 2 su máximo es de 321, su mínimo es de 0 y su media es de 6.40
+
+-   Para la Versión 3 su máximo es de 251, su mínimo es de 0 y su media es de 6.68
+
+```{r table_CBO}
+
+tableCboClassV1 <- table(cboClassV1)
+barplot(tableCboClassV1,
+        main = 'Respuesta de una clase (CBO) V1',
+        col = 'blue',
+        xlab = 'Respuestas de una clase',
+        ylab = 'Clases')
+
+tableCboClassV2 <- table(cboClassV2)
+barplot(tableCboClassV2,
+        main = 'Respuesta de una clase (CBO) V2',
+        col = 'orange',
+        xlab = 'Respuestas de una clase',
+        ylab = 'Clases')
+
+tableCboClassV3 <- table(cboClassV3)
+barplot(tableCboClassV3,
+        main = 'Respuesta de una clase (CBO) V3',
+        col = 'grey',
+        xlab = 'Respuestas de una clase',
+        ylab = 'Clases')
+
+```
+
+Para CBO cuanto más acoplamiento se da en una clase, más difícil será reutilizarla. Las clases deberían de ser lo más independientes. Como se observa en la gráfica en el umbral de 0 a 23 aproximadamente, por lo tanto, se interpreta que su acoplamiento es bueno.
+
+### Gráficas de barras WMC
+
+-   Para la Versión 1 su máximo es de 120, su mínimo es de 0 y su media es de 8.82
+
+-   Para la Versión 2 su máximo es de 120, su mínimo es de 0 y su media es de 8.03
+
+-   Para la Versión 3 su máximo es de 120, su mínimo es de 0 y su media es de 8.63
+
+```{r table_WMC}
+
+tableWmcClassV1 <- table(wmcClassV1)
+barplot(tableWmcClassV1,
+        main = 'Métodos ponderados por clase (WMC) V1',
+        col = 'blue',
+        xlab = 'Métodos ponderados por clase',
+        ylab = 'Clases')
+
+tableWmcClassV2 <- table(wmcClassV2)
+barplot(tableWmcClassV2,
+        main = 'Métodos ponderados por clase (WMC) V2',
+        col = 'orange',
+        xlab = 'Métodos ponderados por clase',
+        ylab = 'Clases')
+
+tableWmcClassV3 <- table(wmcClassV3)
+barplot(tableWmcClassV3,
+        main = 'Métodos ponderados por clase (WMC) V3',
+        col = 'grey',
+        xlab = 'Métodos ponderados por clase',
+        ylab = 'Clases')
+
+```
+
+Para WMC sugieren un umbral de 40 o 20, dependiendo si las clases son o no de interface de usuario respectivamente. Como se observa en gráfica, la mayoría de clases se encuentran dentro de ese umbral, entre 0 y 35 aproximadamente, por lo tanto, se interpreta que su complejidad es buena.
+
+### Gráficas de barras LCOM
+
+-   Para la Versión 1 su máximo es de 51, su mínimo es de 0 y su media es de 1.40
+
+-   Para la Versión 2 su máximo es de 51, su mínimo es de 0 y su media es de 1.35
+
+-   Para la Versión 3 su máximo es de 55, su mínimo es de 0 y su media es de 1.54
+
+```{r table_LCOM}
+
+tableLcomClassV1 <- table(lcomClassV1)
+barplot(tableLcomClassV1,
+        main = 'Falta de cohesión en los métodos (LCOM) V1',
+        col = 'blue',
+        xlab = 'Falta de cohesión en los métodos',
+        ylab = 'Clases')
+
+tableLcomClassV2 <- table(lcomClassV2)
+barplot(tableLcomClassV2,
+        main = 'Falta de cohesión en los métodos (LCOM) V2',
+        col = 'orange',
+        xlab = 'Falta de cohesión en los métodos',
+        ylab = 'Clases')
+
+tableLcomClassV3 <- table(lcomClassV3)
+barplot(tableLcomClassV3,
+        main = 'Falta de cohesión en los métodos (LCOM) V3',
+        col = 'grey',
+        xlab = 'Falta de cohesión en los métodos',
+        ylab = 'Clases')
+
+```
+
+Para LCOM un valor alto de LCOM implica falta de cohesión, es decir, escasa similitud de los métodos. Valores cercanos a 0 indica que la mayoría de los métodos accede a la mayoría de instancias. Como se observa en gráfica, la mayoría de clases se encuentran dentro del umbral de 0 a 6 aproximadamente, por lo, tanto se interpreta que su cohesión es buena.
+
+## Indicadores
+
+Una vez analizadas las gráficas se va a crear un indicador donde muestre las clases que se consideran que están mal cortando por el número que se considera bueno analizado en las gráficas.
+
+### Indicador CBO
+
+Para el indicador de CBO se considera que a partir de 35 dichas clases tienen un mal acoplamiento, asi que se mostrarán las clases que superen dicho umbral.
+
+```{r indicator_CBO}
+
+scaleCboClassV1 = (meanCboClassV1 * 0.3) + meanCboClassV1
+indicatorCboClassV1 <- datasetClassV1[cboClassV1 >= scaleCboClassV1,]
+indicatorCboClassV1
+
+scaleCboClassV2 = (meanCboClassV2 * 0.3) + meanCboClassV2
+indicatorCboClassV2 <- datasetClassV2[cboClassV2 >= scaleCboClassV2,]
+indicatorCboClassV2
+
+scaleCboClassV3 = (meanCboClassV3 * 0.3) + meanCboClassV3
+indicatorCboClassV3 <- datasetClassV3[cboClassV3 >= scaleCboClassV3,]
+indicatorCboClassV3
+
+```
+
+### Indicador WMC
+
+Para el indicador de WMC se considera que a partir de 23 dichas clases tienen una mala complejidad, así que se mostrarán las clases que superen dicho umbral.
+
+```{r indicator_WMC}
+
+scaleWmcClassV1 = (meanWmcClassV1 * 0.3) + meanWmcClassV1
+indicatorWmcClassV1 <- datasetClassV1[wmcClassV1 >= scaleWmcClassV1,]
+indicatorWmcClassV1
+
+scaleWmcClassV2 = (meanWmcClassV2 * 0.3) + meanWmcClassV2
+indicatorWmcClassV2 <- datasetClassV2[wmcClassV2 >= scaleWmcClassV2,]
+indicatorWmcClassV2
+
+scaleWmcClassV3 = (meanWmcClassV3 * 0.3) + meanWmcClassV3
+indicatorWmcClassV3 <- datasetClassV3[wmcClassV3 >= scaleWmcClassV3,]
+indicatorWmcClassV3
+
+```
+
+### Indicador LCOM
+
+Para el indicador de LCOM se considera que a partir de 23 dichas clases tienen una mala cohesión, así que se mostrarán las clases que superen dicho umbral.
+
+```{r indicator_LCOM}
+
+scaleLcomClassV1 = (meanLcomClassV1 * 0.3) + meanLcomClassV1
+indicatorLcomClassV1 <- datasetClassV1[lcomClassV1 >= scaleLcomClassV1,]
+indicatorLcomClassV1
+
+scaleLcomClassV2 = (meanLcomClassV2 * 0.3) + meanLcomClassV2
+indicatorLcomClassV2 <- datasetClassV2[lcomClassV2 >= scaleLcomClassV2,]
+indicatorLcomClassV2
+
+scaleLcomClassV3 = (meanLcomClassV3 * 0.3) + meanLcomClassV3
+indicatorLcomClassV3 <- datasetClassV3[lcomClassV3 >= scaleLcomClassV3,]
+indicatorLcomClassV3
+
+```

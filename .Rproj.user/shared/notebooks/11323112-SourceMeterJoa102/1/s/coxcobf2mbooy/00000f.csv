@@ -1,0 +1,4 @@
+"0",""
+"0","scaleWmcClassV1 = (meanWmcClassV1 * 0.3) + meanWmcClassV1"
+"0","indicatorWmcClassV1 <- datasetClassV1[wmcClassV1 >= scaleWmcClassV1,]"
+"0","indicatorWmcClassV1"

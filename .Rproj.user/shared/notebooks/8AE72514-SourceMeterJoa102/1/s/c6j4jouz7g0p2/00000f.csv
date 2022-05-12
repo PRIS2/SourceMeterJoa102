@@ -1,0 +1,2 @@
+"0","medidasV1 <- max(datasetClassV1$LOC) - min(datasetClassV1$LOC)"
+"0","View(medidasV1)"

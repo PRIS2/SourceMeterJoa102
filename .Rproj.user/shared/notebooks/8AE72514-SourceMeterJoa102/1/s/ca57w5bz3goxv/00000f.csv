@@ -1,0 +1,7 @@
+"0","min_LCOM5_ClassV1 <- min(datasetClassV1$LCOM5)"
+"0","min_LCOM5_ClassV2 <- min(datasetClassV2$LCOM5)"
+"0","min_LCOM5_ClassV3 <- min(datasetClassV3$LCOM5)"
+"0","max_LCOM5_ClassV1 <- max(datasetClassV1$LCOM5)"
+"0","max_LCOM5_ClassV2 <- max(datasetClassV2$LCOM5)"
+"0","max_LCOM5_ClassV3 <- max(datasetClassV3$LCOM5)"
+"0",""

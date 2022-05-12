@@ -1,0 +1,3 @@
+"0","media30pLCOM5_ClassV1 = (mediaLCOM5_ClassV1 * 0.3) + mediaLCOM5_ClassV1"
+"0","indicadorLCOM5_ClassV1 <- datasetClassV1[datasetClassV1$LCOM5 >= media30pLCOM5_ClassV1,]"
+"0","indicadorLCOM5_ClassV1"

@@ -1,0 +1,5 @@
+"0","barplot(freqLCOM5_classV2,"
+"0","        col = 'red',"
+"0","        xlab = 'LCOM5',"
+"0","        ylab = 'Cantidad')"
+"0",""

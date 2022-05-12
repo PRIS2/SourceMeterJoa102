@@ -1,0 +1,4 @@
+"0",""
+"0","scaleCboClassV1 = (meanCboClassV1 * 0.3) + meanCboClassV1"
+"0","indicatorCboClassV1 <- datasetClassV1[cboClassV1 >= scaleCboClassV1,]"
+"0","indicatorCboClassV1"

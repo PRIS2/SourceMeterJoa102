@@ -1,0 +1,3 @@
+"0","media30pWMC_ClassV1 = (mediaWMC_ClassV1 * 0.3) + mediaWMC_ClassV1"
+"0","indicadorWMC_ClassV1 <- datasetClassV1[datasetClassV1$WMC >= media30pWMC_ClassV1,]"
+"0","indicadorWMC_ClassV1"
